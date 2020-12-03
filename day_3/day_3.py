@@ -2,19 +2,20 @@ from __future__ import annotations
 import pathlib
 from typing import List
 
+
 class Coordinates:
-    def __init__(self, x, y):
+    def __init__(self, x: int, y: int):
         self.x = x
         self.y = y
 
-    def __add__(self, other):
+    def __add__(self, other: Coordinates) -> Coordinates:
         return Coordinates(self.x + other.x, self.y + other.y)
 
 
 class PuzzleSolver:
     TREE_CHAR = '#'
 
-    def __init__(self, filename):
+    def __init__(self, filename: str):
         self._file_path = pathlib.Path(__file__).parent.joinpath(filename)
         self._puzzle_inputs = self._read_puzzle_input_file()
 
